@@ -11,7 +11,7 @@ let urlInstanceLauncher = urlInstance + "Launcher/";
 function createWindow () {
     mainWindow = new BrowserWindow({
         frame: false,
-        title: "TyroServ Loader - 0.1.0",
+        title: "TyroServ Loader",
         width: 419,
         height: 572,
         resizable: false,
@@ -175,6 +175,7 @@ ipcMain.on("start", (event, data) =>{
                 updatedLauncher(linkDownload, pathLaunch, versionName);
             } else {
                 lancement(versionName);
+                // showErrorDialog("Erreur Internet", 'Une erreur s\'est produite. Veuillez réessayer.');
             }
         })
         .catch(error => {
@@ -276,4 +277,5 @@ ipcMain.on("start", (event, data) =>{
 
 function showErrorDialog(context, message) {
     dialog.showErrorBox(context, message);
+    app.quit();
 }

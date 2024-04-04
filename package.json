@@ -1,13 +1,42 @@
 {
   "name": "tyroserv-loader",
-  "version": "0.1.0",
+  "productName": "TyroServ Launcher",
+  "version": "0.1.2",
   "description": "Loader TyroServ",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "build-linux": "electron-builder --linux"
   },
-  "icon": "asset/logo.png",
+  "build": {
+    "appId": "tyroserv-launcher",
+
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "logo.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "logo.ico",
+      "uninstallerIcon": "logo.ico",
+      "uninstallDisplayName": "TyroServ Launcher",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": false
+    },
+
+    "linux": {
+      "target": [
+        "deb",
+        "snap",
+        "rpm"
+      ],
+      "category": "Utility"
+    }
+  },
+  "icon": "app.ico",
   "author": "Tyrolium",
   "license": "MIT",
   "devDependencies": {
