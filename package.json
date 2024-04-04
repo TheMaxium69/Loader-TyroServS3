@@ -8,7 +8,7 @@
     "build": "electron-builder"
   },
   "icon": "asset/logo.png",
-  "author": "Maxime Tournier",
+  "author": "Tyrolium",
   "license": "MIT",
   "devDependencies": {
     "electron": "^10.1.5",
