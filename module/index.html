@@ -37,5 +37,33 @@
             shell.openExternal(url);
         }
 
+        // REQUETE API
+        ipcRenderer.on('getInfoLoaderServer', (event, data) => {
+
+            function getInfoLoaderServer(ip) {
+                return new Promise((resolve, reject) => {
+                    fetch(ip)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            resolve(data);
+                        })
+                        .catch(function (error) {
+                            reject(error);
+                        });
+                });
+            }
+
+            getInfoLoaderServer("http://tyrolium.fr/Download/TyroServS3/launcher/index.php")
+                .then(function (InfoLoaderServer) {
+                    console.log(InfoLoaderServer)
+                }).catch(function (error) {
+                console.log(error)
+                // showErrorDialog("Erreur Internet", 'Une erreur s\'est produite. Veuillez réessayer.');
+            });
+
+        });
+
     </script>
 </html>
